@@ -20,19 +20,6 @@ Conditions:
 9. if bank[p1] < banks[p2]:
 10. increment both p1, p2 
 
-
-Part Two
-
-Conditions:
-1. must be 12 digits -> number of digits left  == current found digits -> take the whole ending digits
-2. find the largest digit for higher decimal places 
-
-Logic:
-1. Define two pointers: p1, p2 (Same logic as )
-2. Define count of decimal place (this is the key differene with part one)
-3. if bank[p1] > bank[p2] -> increment p2
-4. if bank[p1] <= bank[p2] -> p1 = p2, increment p2
-
 """
 from input import INPUT, EXAMPLE_INPUT
 
@@ -66,46 +53,8 @@ def partOne():
 
     return sum
 
-def partTwo():
-    banks = readInput(EXAMPLE_INPUT)
-    sum = 0
-    for bank in banks:
-        p1 = 0
-        p2 = p1
-        num = ""
-        count = 0 
-        remaining = len(bank) - count
-        # largest_joltage =int(bank[p1] + bank[p2])
-
-        while (p2 < remaining):
-            # current_joltage = int(bank[p1] + bank[p2])
-            # if (current_joltage > largest_joltage):
-            #     largest_joltage = current_joltage
-            
-            if (bank[p1] < bank[p2]):
-                p1 = p2
-            else:
-                num += bank[p2]
-                count += 1
-
-            p2 += 1
-            remaining = len(bank) - count
-
-        print(num)
-        print(len(num))
-
-        
-        
-        # current_joltage = int(bank[p1] + bank[p2])
-        # if (current_joltage > largest_joltage):
-        #     largest_joltage = current_joltage    
-        
-        # sum += largest_joltage
-
-    return sum
-
 
 if __name__ == "__main__":
-    # result = partOne()
-    result = partTwo()
+    result = partOne()
+    #result = partTwo()
     print(result)
